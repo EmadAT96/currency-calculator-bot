@@ -1,5 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Any
+from datetime import datetime
 
 class ExchangeResponse:
 
@@ -12,7 +13,10 @@ class ExchangeResponse:
 
 @dataclass
 class CurrencyRate:
-    base: str
-    target: str
-    rate: float
     name: str
+    value: str
+    change: float | None = None
+    date: str = field(
+        default_factory=lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    )
+    

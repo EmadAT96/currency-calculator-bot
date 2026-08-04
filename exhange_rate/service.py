@@ -3,6 +3,7 @@ from factory.auth_factory import AuthFactory
 from factory.provider_factory import ProviderFactory
 from core.request_builder import RequestBuilder
 from providers.brsap import BrsapProvider
+from providers.navasan import NavasanProvider
 
 provider_name = "brsap"
 
