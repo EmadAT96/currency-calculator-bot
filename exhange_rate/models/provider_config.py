@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from .base_config import HttpMethod
+from exhange_rate.models.base_config import HttpMethod
 
 @dataclass
 class ProviderConfig:

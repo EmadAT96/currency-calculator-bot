@@ -1,4 +1,4 @@
-from contracts.auth import AuthStrategy
+from exhange_rate.contracts.auth import AuthStrategy
 class ApiKeyHeaderAuth(AuthStrategy):
 
     def __init__(

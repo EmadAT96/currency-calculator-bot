@@ -1,7 +1,7 @@
-from contracts.provider import ExchangeRateProvider
-from registry.provider_registry import register_provider
-from mappers.brsap import BrsapMapper
-from validators.brsap import BrsapValidator
+from exhange_rate.contracts.provider import ExchangeRateProvider
+from exhange_rate.registry.provider_registry import register_provider
+from exhange_rate.mappers.brsap import BrsapMapper
+from exhange_rate.validators.brsap import BrsapValidator
 
 @register_provider(
     "brsap",

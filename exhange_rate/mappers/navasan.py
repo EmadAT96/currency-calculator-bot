@@ -1,5 +1,5 @@
-from contracts.mapper import ResponseMapper
-from models.response import CurrencyRate
+from exhange_rate.contracts.mapper import ResponseMapper
+from exhange_rate.models.response import CurrencyRate
 
 class NavasanMapper(ResponseMapper):
 

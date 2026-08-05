@@ -1,7 +1,7 @@
-from mappers.navasan import NavasanMapper
-from validators.navasan import NavasanValidator
-from contracts.provider import ExchangeRateProvider
-from registry.provider_registry import register_provider
+from exhange_rate.mappers.navasan import NavasanMapper
+from exhange_rate.validators.navasan import NavasanValidator
+from exhange_rate.contracts.provider import ExchangeRateProvider
+from exhange_rate.registry.provider_registry import register_provider
 
 @register_provider(
     "navasan",

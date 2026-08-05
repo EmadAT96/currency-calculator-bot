@@ -2,7 +2,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from exceptions.provider import ProviderTimeoutExeption
+from exhange_rate.exceptions.provider import ProviderTimeoutExeption
 
 class HttpClient:
 

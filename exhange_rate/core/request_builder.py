@@ -1,4 +1,4 @@
-from models.request import RequestConfig
+from exhange_rate.models.request import RequestConfig
 
 class RequestBuilder:
 

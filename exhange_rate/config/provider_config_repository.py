@@ -1,5 +1,5 @@
-from models.provider_config import ProviderConfig
-from models.base_config import HttpMethod
+from exhange_rate.models.provider_config import ProviderConfig
+from exhange_rate.models.base_config import HttpMethod
 
 class ProviderConfigRepository:
 

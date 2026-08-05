@@ -1,5 +1,5 @@
-from core.http_client import HttpClient
-from registry.provider_registry import ProviderRegistry
+from exhange_rate.core.http_client import HttpClient
+from exhange_rate.registry.provider_registry import ProviderRegistry
 
 class ProviderFactory:
 

@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Any
-from .base_config import HttpMethod
+from exhange_rate.models.base_config import HttpMethod
 
 @dataclass
 class RequestConfig:

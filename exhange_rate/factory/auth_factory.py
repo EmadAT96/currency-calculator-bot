@@ -1,7 +1,7 @@
 
-from auth.api_key import ApiKeyHeaderAuth
-from auth.query_param import QueryParamsAuth
-from auth.oauth2 import OAuth2Auth
+from exhange_rate.auth.api_key import ApiKeyHeaderAuth
+from exhange_rate.auth.query_param import QueryParamsAuth
+from exhange_rate.auth.oauth2 import OAuth2Auth
 
 class AuthFactory:
 

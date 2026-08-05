@@ -1,4 +1,4 @@
-from contracts.validator import ResponseValidator
+from exhange_rate.contracts.validator import ResponseValidator
 
 class BrsapValidator(ResponseValidator):
 
