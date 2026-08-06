@@ -17,7 +17,7 @@ class CurrencyFormatter:
 
             lines.extend([
                 f"💱 {rate.name}",
-                f"💰 قیمت: {rate.value:,}",
+                f"💰 قیمت: {rate.value}",
                 f"{change_icon} تغییر: {rate.change}",
                 ""
             ])

@@ -7,7 +7,7 @@ from telegram_bot.services.exchange_rate_service import ExchangeRateService
 async def main():
 
     exchange_service = ExchangeRateService(
-        "navasan"
+        "exchange_rate"
     )
 
     telegram_client = TelegramClient(
@@ -17,14 +17,16 @@ async def main():
     updates = await telegram_client.bot.get_updates()
 
     for update in updates:
-
+        
+        print(update.effective_chat.id)
+        
         publisher = CurrencyPublisher(
             exchange_rate_service=exchange_service,
             telegram_client=telegram_client,
             chat_id=update.effective_chat.id
         )
 
-        await publisher.publish
+        await publisher.publish()
 
 if __name__ == "__main__":
     asyncio.run(main())

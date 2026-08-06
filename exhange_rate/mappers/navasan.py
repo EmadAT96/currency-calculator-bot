@@ -8,7 +8,6 @@ class NavasanMapper(ResponseMapper):
         results = []
 
         for name, item in data.items():
-            print(item)
             results.append(
                 CurrencyRate(
                     name=name,

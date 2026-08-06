@@ -1,6 +1,14 @@
 from exhange_rate.models.provider_config import ProviderConfig
 from exhange_rate.models.base_config import HttpMethod
 
+from exhange_rate.providers.navasan import NavasanProvider
+from exhange_rate.mappers.navasan import NavasanMapper
+from exhange_rate.providers.brsap import BrsapProvider
+from exhange_rate.mappers.brsap import BrsapMapper
+from exhange_rate.mappers.exchangerate import ExchangeMapper
+from exhange_rate.providers.exchangerate import ExchangeProvider
+
+
 class ProviderConfigRepository:
 
     configs = {
@@ -23,6 +31,18 @@ class ProviderConfigRepository:
                 "type":"query_param",
                 "key_name":"api_key",
                 "value":"freenx5KrlKZ3oZb4bknlAIQIGRuEARF"
+            }
+        ),
+        "exchange_rate": ProviderConfig(
+            "exchange_rate",
+            url="https://api.exchangerate.host/live",
+            auth={
+                "type":"query_param",
+                "key_name":"access_key",
+                "value":"62e450907cd9d381877e9ca2e4e56e8b"
+            },
+            query_params={
+                "source":"IRR"
             }
         )
     }

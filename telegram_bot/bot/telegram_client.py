@@ -18,5 +18,17 @@ class TelegramClient:
             chat_id=chat_id,
             text=text
         )
+        
+    async def send_photo(
+        self,
+        chat_id,
+        image,
+        caption=""
+    ):
+        await self.bot.send_photo(            
+            chat_id=chat_id,
+            photo=image,
+            caption=caption
+        )
 
     

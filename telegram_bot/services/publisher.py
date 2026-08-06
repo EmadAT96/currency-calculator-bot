@@ -1,18 +1,16 @@
 from telegram_bot.formatters.currency_formatter import CurrencyFormatter
+from telegram_bot.generators.currency_image_generator import CurrencyImageGenerator
+
+from datetime import datetime
 
 class CurrencyPublisher:
     IMPORTANT_RATES = {
-        "usd_usdt",
-        "sekkeh",
-        "bahar",
-        "nim",
-        "rob",
-        "abshodeh",
-        "gerami",
-        "usd_buy",
-        "dirham_dubai",
-        "eur_hav",
-        "gbp_hav"
+        "IRRUSD",
+        "IRRTRY",
+        "IRREUR",
+        "IRRCAD",
+        "IRRAED",
+        "IRRGBP"
     }
 
     def __init__(
@@ -34,6 +32,7 @@ class CurrencyPublisher:
             for rate in rates
             if rate.name in self.IMPORTANT_RATES
         ]
+        
 
         message = CurrencyFormatter.format_rates(
             selected_rates
@@ -42,4 +41,20 @@ class CurrencyPublisher:
         await self.telegram_client.send_message(
             self.chat_id,
             message
+        )
+        
+        image = CurrencyImageGenerator(
+            '../templates/currency_template.png',
+            '../fonts/Vazirmatn-Bold.ttf'
+        )
+        
+        output = image.generate(
+            selected_rates,
+            output_path='../output/result.png'
+        )
+        
+        await self.telegram_client.send_photo(            
+            self.chat_id,
+            output,
+            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
