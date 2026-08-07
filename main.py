@@ -1,20 +1,30 @@
 import asyncio
+import os
+
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.triggers.interval import IntervalTrigger
+
+from dotenv import load_dotenv
+
 from telegram_bot.bot.telegram_client import TelegramClient
 from telegram_bot.services.publisher import CurrencyPublisher
-
 from telegram_bot.services.exchange_rate_service import ExchangeRateService
 
-async def main():
+load_dotenv()
 
+async def job():
+    
     exchange_service = ExchangeRateService(
         "exchange_rate"
     )
 
     telegram_client = TelegramClient(
-        token="8634927023:AAHFae9lPTHAjVKWs1WED-_S4M-15k_YTuA"
+        token=os.getenv("TELEGRAM_BOT_TOKEN")
     )
 
     updates = await telegram_client.bot.get_updates()
+    
+    print(updates)
 
     for update in updates:
         
@@ -27,6 +37,18 @@ async def main():
         )
 
         await publisher.publish()
+        
+        
 
+async def main():
+            
+    scheduler = AsyncIOScheduler()
+
+    scheduler.add_job(job, IntervalTrigger(minutes=5))
+
+    scheduler.start()
+    
+    await asyncio.Event().wait()
+    
 if __name__ == "__main__":
     asyncio.run(main())

@@ -1,3 +1,7 @@
+import os
+
+from dotenv import load_dotenv
+
 from exhange_rate.models.provider_config import ProviderConfig
 from exhange_rate.models.base_config import HttpMethod
 
@@ -8,7 +12,7 @@ from exhange_rate.mappers.brsap import BrsapMapper
 from exhange_rate.mappers.exchangerate import ExchangeMapper
 from exhange_rate.providers.exchangerate import ExchangeProvider
 
-
+load_dotenv()
 class ProviderConfigRepository:
 
     configs = {
@@ -21,7 +25,7 @@ class ProviderConfigRepository:
             auth={
                 "type":"query_param",
                 "key_name":"key",
-                "value":"BNeKH7naELKszrLWD42pr9juKsJG3t3w"
+                "value":os.getenv("BRSAPI_TOKEN")
             }
         ),
         "navasan": ProviderConfig(
@@ -30,7 +34,7 @@ class ProviderConfigRepository:
             auth={
                 "type":"query_param",
                 "key_name":"api_key",
-                "value":"freenx5KrlKZ3oZb4bknlAIQIGRuEARF"
+                "value":os.getenv("NAVASAN_TOKEN")
             }
         ),
         "exchange_rate": ProviderConfig(
@@ -39,7 +43,7 @@ class ProviderConfigRepository:
             auth={
                 "type":"query_param",
                 "key_name":"access_key",
-                "value":"62e450907cd9d381877e9ca2e4e56e8b"
+                "value":os.getenv("EXCHANGE_TOKEN")
             },
             query_params={
                 "source":"IRR"
